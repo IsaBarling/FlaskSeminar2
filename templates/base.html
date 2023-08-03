@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* Стили для шапки */
+        header {
+            text-align: center; /* Выравнивание содержимого по центру */
+            background: linear-gradient(135deg, #FF00FF, #FF1493); /* Градиентный фон от фиолетового до розового */
+            padding: 20px 0; /* Внутренние отступы сверху и снизу */
+        }
+
+        /* Стили для названия магазина */
+        h1 {
+            font-size: 36px; /* Размер шрифта */
+            color: white; /* Цвет текста (белый) */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Тень текста */
+            margin: 0; /* Убираем внешние отступы, чтобы заголовок был по центру */
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <!-- Название магазина в центре с фиолетово-розовым градиентом -->
+        <h1>Pajama Paradise</h1>
+    </header>
+
+    <header>
+        <!-- Здесь размещается шапка сайта, логотип, навигационное меню и т.д. -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <!-- Навигационное меню в виде вкладок -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/catalog/">Каталог товаров</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/feedback/">Обратная связь</a>
+                    </li>
+                    <!-- Здесь будет проверка наличия текущего пользователя и вывод соответствующего меню -->
+                    {% if current_user %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile/">Профиль</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout/">Выход</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login/">Вход</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <!-- Здесь размещается подвал сайта, информация о правах, контакты и т.д. -->
+        <p>Все права защищены &copy; 2023</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Обратная связь</h1>
+    <form action="/feedback/" method="POST" enctype="multipart/form-data">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="surname">Фамилия:</label>
+        <input type="text" id="surname" name="surname" required>
+        <label for="patronymic">Отчество:</label>
+        <input type="text" id="patronymic" name="patronymic" required>
+        <label for="passport_data">Данные паспорта:</label>
+        <input type="text" id="passport_data" name="passport_data" required>
+        <label for="purchase_data">Данные покупки:</label>
+        <input type="text" id="purchase_data" name="purchase_data" required>
+        <label for="receipt_photo">Фото чека (только jpg):</label>
+        <input type="file" id="receipt_photo" name="receipt_photo" accept=".jpg" required>
+        <button type="submit">Отправить жалобу</button>
+    </form>
+{% endblock %}
