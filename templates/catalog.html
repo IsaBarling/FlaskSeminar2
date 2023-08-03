@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Каталог товаров</h1>
+    <h2>Одежда</h2>
+    <ul>
+        {% for item in clothes_data %}
+            <li>{{ item.name }} - Цвет: {{ item.color }}, Цена: {{ item.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Детская одежда</h2>
+    <ul>
+        {% for item in kids_clothes_data %}
+            <li>{{ item.name }} - Цвет: {{ item.color }}, Цена: {{ item.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Мужская одежда</h2>
+    <ul>
+        {% for item in men_clothes_data %}
+            <li>{{ item.name }} - Цвет: {{ item.color }}, Цена: {{ item.price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
